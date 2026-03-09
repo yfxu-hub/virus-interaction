@@ -43,7 +43,7 @@ Once multiple parameter sets are supported, run one final round of fit_traj_matc
 Run get_start_ranges_from_round2.R, which will compute the final starting ranges for parametric bootstrapping and save the maximum likelihood estimates for all parameters.
 The confidence intervals for the parameters are derived from all parameter estimates that pass the chi‑square likelihood ratio test.
 
-5. Run parametric bootstrapping to get 95% confidence intervals for seasonal parameters.
+5.Run parametric bootstrapping to get 95% confidence intervals for seasonal parameters.
 In the bootstrap folder, sequentially run the R scripts beginning with bootstrap_01, bootstrap_02, and bootstrap_03 to generate the synthetic datasets and the corresponding distributions of the seasonal parameters.
 
 Code to explore data/model fit

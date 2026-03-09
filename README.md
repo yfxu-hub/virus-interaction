@@ -58,6 +58,7 @@ Simulation Study of Vaccine Impact
 ----------------------------------
 
 Run "vaccination_simulation_study/run_vaccination_simulation_study.R" to get simulations of COVID-19 vaccine for all seasons, vaccine coverage levels, and vaccine timings.
+
 Run "vaccination_simulation_study/run_vaccination_simulation_study_for_fluvaccine.R" to get simulations of flu vaccine for all seasons, vaccine coverage levels, and vaccine timings.
 
 Data Sources

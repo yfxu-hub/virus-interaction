@@ -27,18 +27,22 @@ Fitting the interaction model to data
 Run fit_traj_matching_round1.R to obtain initial estimates for all season‑specific parameters. Set sobol_size = 500, search_type = "broad", and for Hong Kong analyses set sens = "main".
 Run process_results/01_check_missing_files_traj_matching_r1.R to identify any failed runs (by virus, season, or starting parameter set). The script will issue warnings for missing result files.
 Run process_results/02_compile_results_traj_matching_r1.R to aggregate individual results into consolidated output files.
+
 2.Full parameter fitting (Round 2)
 Run fit_traj_matching_round2.R to fit both shared and season‑specific parameters and obtain maximum likelihood estimates. Use search_type = "round1_CIs", which_round = 1, sobol_size = 500, int_eff = "susc", and prof_lik = FALSE. Set sens according to the location being analyzed. The option run_parallel may be set to TRUE or FALSE depending on whether to run multiple starting parameter sets in parallel.
 Run get_start_ranges_from_round2.R to generate the starting parameter ranges for the next fitting round.
 If only one parameter set is statistically supported—i.e., its log‑likelihood lies within qchisq(0.95, df = number_of_parameters) / 2 of the MLE—perform another fitting round, as the MLE has likely not yet been reached.
+
 3.Iterative refinement (subsequent rounds)
 Re‑run fit_traj_matching_round2.R with search_type = "round2_CIs" and increment which_round to 2.
 Run get_start_ranges_from_round2.R again to update parameter start ranges.
 Repeat this procedure—incrementing which_round each time—until multiple parameter sets are statistically supported.
+
 4.Final fitting round
 Once multiple parameter sets are supported, run one final round of fit_traj_matching_round2.R with search_type = "round2_CIs".
 Run get_start_ranges_from_round2.R, which will compute the final starting ranges for parametric bootstrapping and save the maximum likelihood estimates for all parameters.
 The confidence intervals for the parameters are derived from all parameter estimates that pass the chi‑square likelihood ratio test.
+
 5. Run parametric bootstrapping to get 95% confidence intervals for seasonal parameters.
 In the bootstrap folder, sequentially run the R scripts beginning with bootstrap_01, bootstrap_02, and bootstrap_03 to generate the synthetic datasets and the corresponding distributions of the seasonal parameters.
 
